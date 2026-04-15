@@ -2,95 +2,81 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Antonino Sánchez Martínez</title>
-    <!-- Cargamos la librería desde un servidor de confianza compatible con GitHub -->
-    <script src="https://jsdelivr.net"></script>
-
+    <!-- Incluimos la librería completa directamente para evitar bloqueos de red -->
+    <script src="https://cloudflare.com"></script>
+    
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; background: #333; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
-        
-        #cv-render { width: 210mm; background: white; min-height: 297mm; box-shadow: 0 0 20px rgba(0,0,0,0.5); color: #333; }
-        
-        header { background: #2c3e50; color: white; text-align: center; padding: 40px 20px; }
-        header img { width: 150px; height: 180px; border: 4px solid white; object-fit: cover; border-radius: 4px; margin-bottom: 15px; }
-        
-        section { padding: 40px; }
-        h2 { border-bottom: 2px solid #2c3e50; color: #2c3e50; padding-bottom: 10px; margin-top: 30px; text-transform: uppercase; }
-        p, li { line-height: 1.6; font-size: 15px; }
-        
-        .no-imprimir { margin-bottom: 20px; }
-        .btn-descargar { padding: 15px 35px; background: #27ae60; color: white; border: none; border-radius: 50px; cursor: pointer; font-size: 18px; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-        .btn-descargar:hover { background: #219150; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #444; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        #cv-final { width: 210mm; background: white; min-height: 297mm; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+        header { background: #2c3e50; color: white; text-align: center; padding: 40px; }
+        header img { width: 150px; height: 180px; border: 4px solid white; object-fit: cover; margin-bottom: 15px; }
+        section { padding: 40px; color: #333; }
+        h2 { border-bottom: 2px solid #2c3e50; color: #2c3e50; padding-bottom: 8px; }
+        .no-print { margin-bottom: 20px; }
+        .btn { padding: 15px 30px; background: #27ae60; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 18px; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <div class="no-imprimir">
-        <button class="btn-descargar" onclick="descargarPDF()">📥 GENERAR MI PDF</button>
+    <div class="no-print">
+        <button class="btn" onclick="descargar()">📥 GENERAR PDF (Modo Local)</button>
     </div>
 
-    <div id="cv-render">
+    <div id="cv-final">
         <header>
-            <!-- Importante: En GitHub Pages la foto debe estar en la misma carpeta que el index.html -->
-            <img src="imgPersonal.jpg" alt="Foto Antonino">
-            <h1 style="margin:0;">Antonino Sánchez Martínez</h1>
-            <p style="margin:5px 0 0; opacity:0.9;">Auxiliar Administrativo / Especialista en Atención al Cliente</p>
+            <img src="imgPersonal.jpg" alt="Antonino Sánchez">
+            <h1>Antonino Sánchez Martínez</h1>
+            <p>Auxiliar Administrativo / Atención al Cliente</p>
         </header>
-
         <section>
             <h2>Contacto</h2>
-            <p><strong>📍 Dirección:</strong> Camino del Potrero 7847 Y2, Cd. Juárez</p>
-            <p><strong>📱 WhatsApp:</strong> 6566000784 | <strong>✉️ Email:</strong> antoninosm1@gmail.com</p>
-
-            <h2>Experiencia Destacada</h2>
+            <p><strong>WhatsApp:</strong> 6566000784 | <strong>Email:</strong> antoninosm1@gmail.com</p>
+            <p><strong>Ubicación:</strong> Camino del Potrero 7847 Y2, Cd. Juárez</p>
+            
+            <h2>Experiencia Laboral</h2>
             <p><strong>Banco del Bienestar (2024 - Actualidad)</strong><br>
-            Auxiliar administrativo y encargado de sucursal temporal. Manejo de programas sociales y ahorro.<br>
-            <em>Logro:</em> Optimización de atención al cliente reduciendo tiempos en un 20%.</p>
-
+            Auxiliar administrativo. Logro: Eficiencia mejorada en un 20%.</p>
+            
             <p><strong>Repartidor UBER Eats (2020 - 2024)</strong><br>
-            Gestión logística y atención personalizada. Calificación: 4.9/5.</p>
+            Atención al cliente. Calificación 4.9/5.</p>
 
             <p><strong>Técnico en Urgencias Médicas (2006 - 2016)</strong><br>
-            Traslado y soporte crítico. 95% de efectividad en emergencias.</p>
+            95% de efectividad en traslados críticos.</p>
 
-            <h2>Formación Académica</h2>
+            <h2>Formación</h2>
             <ul>
-                <li>Ingeniería en Sistemas (ITCJ)</li>
-                <li>Bachillerato Prepa en Línea SEP (Certificado)</li>
-                <li>Certificación Microsoft Empleo 4.0</li>
+                <li>Ingeniería en Sistemas (2 semestres)</li>
+                <li>Bachillerato Prepa en Línea SEP</li>
             </ul>
 
-            <h2>Expectativa Económica</h2>
-            <p><strong>$15,000 MXN mensuales</strong> (Monto no negociable).</p>
+            <h2>Sueldo Deseado</h2>
+            <p><strong>$15,000 MXN mensuales</strong> (No negociable).</p>
         </section>
     </div>
 
     <script>
-    function descargarPDF() {
-        const elemento = document.getElementById('cv-render');
-        
-        // Configuración optimizada para GitHub Pages y navegadores modernos
-        const opciones = {
-            margin: 0,
-            filename: 'CV_Antonino_Sanchez.pdf',
-            image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { 
-                scale: 3, // Mayor calidad
-                useCORS: true, 
-                logging: false,
-                letterRendering: true 
-            },
-            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-        };
+        function descargar() {
+            const element = document.getElementById('cv-final');
+            
+            // Si la librería remota falla, intentamos usar el comando de impresión del navegador
+            // que es infalible y no requiere internet.
+            const opt = {
+                margin: 0,
+                filename: 'CV_Antonino_Sanchez.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
 
-        // Verificamos carga de la librería
-        if (typeof html2pdf !== 'undefined') {
-            html2pdf().set(opciones).from(elemento).save();
-        } else {
-            alert("Error: No se pudo cargar el generador de PDF. Revisa tu conexión a internet.");
+            if (typeof html2pdf !== 'undefined') {
+                html2pdf().set(opt).from(element).save();
+            } else {
+                // PLAN B: Si la red bloquea la librería, usamos la impresión nativa
+                alert("La red bloqueó la librería externa. Se abrirá la ventana de impresión; elige 'Guardar como PDF'.");
+                window.print();
+            }
         }
-    }
     </script>
 </body>
 </html>
