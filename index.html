@@ -109,6 +109,9 @@
   <!-- Librería html2pdf.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script>
+  <!-- Librería html2pdf.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script>
     function downloadPDF() {
       const element = document.body;
       const opt = {
@@ -116,10 +119,12 @@
         filename: 'Curriculum_Antonino.pdf',
         image: { type: 'jpeg', quality: 1 },
         html2canvas: { scale: 2, useCORS: true },
-        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
       };
       html2pdf().set(opt).from(element).save();
     }
+  </script>
+
   </script>
 </body>
 </html>
