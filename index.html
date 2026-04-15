@@ -2,147 +2,73 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Currículum Vitae - Antonino Sánchez Martínez</title>
+  <title>CV - Antonino Sánchez Martínez</title>
+  <!-- Librería externa -->
+  <script src="https://cloudflare.com"></script>
   <style>
-    /* Estilos generales */
-    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f9f9f9; color: #333; }
-    
-    /* Contenedor principal para el PDF */
-    #cv-container { max-width: 900px; margin: 0 auto; background: #fff; }
-
-    header { background: #2c3e50; color: #fff; padding: 20px; text-align: center; }
-    header img {
-      max-width: 150px;
-      height: auto;
-      border-radius: 5%;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      margin-bottom: 10px;
-    }
-    
-    section { padding: 20px; border-bottom: 1px solid #eee; }
-    h1 { margin: 10px 0; }
-    h2 { border-bottom: 2px solid #2c3e50; padding-bottom: 5px; margin-top: 20px; color: #2c3e50; }
-    ul { list-style: none; padding: 0; }
-    li { margin-bottom: 10px; }
-    
-    footer { background: #2c3e50; color: #fff; text-align: center; padding: 15px; margin-top: 30px; }
-    footer a { color: #ecf0f1; text-decoration: none; }
-    
-    .no-pdf { padding: 20px; text-align: center; } /* Para el botón que no sale en el PDF */
-    .pdf-btn { background: #2980b9; color: #fff; padding: 12px 25px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
-    .pdf-btn:hover { background: #1f6391; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f0f0f0; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+    /* Contenedor que será el PDF */
+    #mi-cv { width: 800px; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.2); }
+    header { background: #2c3e50; color: white; text-align: center; padding: 20px; }
+    header img { width: 150px; border-radius: 5px; border: 3px solid white; }
+    section { padding: 30px; }
+    h2 { border-bottom: 2px solid #2c3e50; padding-bottom: 5px; }
+    .btn-area { margin-bottom: 20px; }
+    button { padding: 12px 24px; background: #2980b9; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+    button:hover { background: #1f6391; }
   </style>
 </head>
 <body>
 
-  <!-- Contenedor que capturará el PDF -->
-  <div id="cv-content">
+  <div class="btn-area">
+    <button onclick="generarPDF()">Descargar CV en PDF</button>
+  </div>
+
+  <!-- TODO lo que esté dentro de este DIV saldrá en el PDF -->
+  <div id="mi-cv">
     <header>
-      <!-- Asegúrate que imgPersonal.jpg esté en la misma carpeta -->
-      <img src="imgPersonal.jpg" alt="Foto de Antonino Sánchez Martínez">
-      <h1>Currículum Vitae</h1>
-      <h2>Antonino Sánchez Martínez</h2>
+      <img src="imgPersonal.jpg" alt="Foto Antonino" crossorigin="anonymous">
+      <h1>Antonino Sánchez Martínez</h1>
+      <p>Currículum Vitae</p>
     </header>
 
     <section>
-      <h2>Datos Básicos</h2>
-      <p><strong>Nombre:</strong> Antonino Sánchez Martínez</p>
-      <p><strong>Dirección:</strong> Camino del Potrero 7847 Y2, Colonia Moradas del Porvenir</p>
-      <p><strong>Whatsapp:</strong> 6566000784</p>
-      <p><strong>Correo electrónico:</strong> antoninosm1@gmail.com</p>
-      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/antonino-sanchez-212668216" target="_blank">Perfil</a></p>
-
-      <h2>Formación Académica</h2>
-      <ul>
-        <li>Ingeniería en Sistemas (2 semestres) — 2023-2024</li>
-        <li>Bachillerato Prepa en Línea SEP — 04/2018 - 03/2021</li>
-        <li>Certificación Empleo 4.0 Microsoft — 2018-2021</li>
-      </ul>
-
-      <h2>Experiencia Laboral</h2>
-      <ul>
-        <li><strong>Banco del Bienestar (08/2024 – Actualidad)</strong><br>
-          Auxiliar administrativo. Logro: Mejora del 20% en tiempos de espera.</li>
-        <li><strong>Repartidor UBER Eats (02/2020 - 08/2024)</strong><br>
-          Calificación: 4.9/5.</li>
-        <li><strong>Técnico en Urgencias Médicas UMAM (08/2006 - 07/2016)</strong><br>
-          Rescate y traslado con 95% de efectividad.</li>
-      </ul>
-
-      <h2>Habilidades y Objetivo</h2>
-      <p><strong>Objetivo:</strong> Auxiliar administrativo orientado a optimizar procesos y eficiencia.</p>
-      <p><strong>Sueldo deseado:</strong> $15,000 MXN mensuales.</p>
+      <h2>Datos Personales</h2>
+      <p><strong>WhatsApp:</strong> 6566000784</p>
+      <p><strong>Email:</strong> antoninosm1@gmail.com</p>
+      
+      <h2>Experiencia</h2>
+      <p><strong>Banco del Bienestar (2024 - Actualidad)</strong><br>Auxiliar administrativo.</p>
+      
+      <h2>Formación</h2>
+      <p>Ingeniería en Sistemas - ITCJ</p>
     </section>
   </div>
 
-  <!-- El botón fuera del id="cv-content" para que no salga dentro del PDF -->
-  <div class="no-pdf">
-    <button class="pdf-btn" onclick="downloadPDF()">Descargar CV en PDF</button>
-  </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-<script>
-  window.addEventListener('load', () => {
-    console.log("✅ Página cargada completamente.");
-    alert("La página está lista. Puedes generar el PDF.");
-  });
+  <script>
+    function generarPDF() {
+      // 1. Seleccionamos el elemento por su ID correcto
+      const elemento = document.getElementById('mi-cv'); 
+      
+      // 2. Configuramos el PDF
+      const opciones = {
+        margin: 0,
+        filename: 'CV_Antonino_Sanchez.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { 
+          scale: 2, 
+          useCORS: true,
+          logging: true // Para ver detalles en consola si falla
+        },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
 
-  function downloadPDF() {
-    try {
-      console.log("⬇️ Preparando descarga de PDF...");
-      alert("Preparando descarga, esperando que la imagen se cargue...");
-
-      const img = document.querySelector("header img");
-      if (!img) {
-        console.error("❌ No se encontró la imagen en el header.");
-        alert("No se encontró la imagen en el header.");
-        return;
-      }
-
-      // Esperar a que la imagen esté cargada
-      if (!img.complete) {
-        console.log("⏳ Imagen aún no cargada, esperando...");
-        img.onload = () => {
-          console.log("✅ Imagen cargada, iniciando proceso de PDF...");
-          iniciarPDF();
-        };
-      } else {
-        console.log("✅ Imagen ya cargada, iniciando proceso de PDF...");
-        iniciarPDF();
-      }
-
-      function iniciarPDF() {
-        setTimeout(() => {
-          console.log("⏳ Espera de seguridad completada, generando PDF...");
-          alert("Iniciando proceso de PDF...");
-
-          const element = document.getElementById('curriculum');
-          const opt = {
-            margin: 0.5,
-            filename: 'Curriculum_Antonino.pdf',
-            image: { type: 'jpeg', quality: 1 },
-            html2canvas: { scale: 2, useCORS: true },
-            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-          };
-
-          console.log("⬇️ Intentando descargar PDF...");
-          alert("Descarga iniciada, revisa la consola para seguimiento.");
-
-          html2pdf().set(opt).from(element).save().then(() => {
-            console.log("✅ PDF descargado correctamente.");
-            alert("PDF descargado correctamente.");
-          }).catch(error => {
-            console.error("❌ Error durante la descarga:", error);
-            alert("Error durante la descarga. Revisa la consola.");
-          });
-        }, 2000); // 2 segundos extra de seguridad
-      }
-    } catch (error) {
-      console.error("❌ Error en función downloadPDF:", error);
-      alert("Error en función downloadPDF. Revisa la consola.");
+      // 3. Ejecutamos la conversión
+      // Si "elemento" es null, aquí daría el error Unknown Source, 
+      // pero ahora el ID coincide: "mi-cv"
+      html2pdf().set(opciones).from(elemento).save()
+        .catch(err => console.error("Error técnico:", err));
     }
-  }
-</script>
-
+  </script>
 </body>
 </html>
