@@ -5,8 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Currículum Vitae - Antonino Sánchez Martínez</title>
   <style>
+    /* Estilos generales */
     body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f9f9f9; color: #333; }
-    header { background: #2c3e50; color: #fff; padding: 10px; text-align: center; }
+    
+    /* Contenedor principal para el PDF */
+    #cv-container { max-width: 900px; margin: 0 auto; background: #fff; }
+
+    header { background: #2c3e50; color: #fff; padding: 20px; text-align: center; }
     header img {
       max-width: 150px;
       height: auto;
@@ -14,145 +19,87 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
       margin-bottom: 10px;
     }
-    section { background: #fff; margin: 20px auto; padding: 20px; max-width: 900px; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    h2 { border-bottom: 2px solid #2c3e50; padding-bottom: 5px; margin-bottom: 5px; }
+    
+    section { padding: 20px; border-bottom: 1px solid #eee; }
+    h1 { margin: 10px 0; }
+    h2 { border-bottom: 2px solid #2c3e50; padding-bottom: 5px; margin-top: 20px; color: #2c3e50; }
     ul { list-style: none; padding: 0; }
     li { margin-bottom: 10px; }
+    
     footer { background: #2c3e50; color: #fff; text-align: center; padding: 15px; margin-top: 30px; }
     footer a { color: #ecf0f1; text-decoration: none; }
-    .pdf-btn { background: #2980b9; color: #fff; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+    
+    .no-pdf { padding: 20px; text-align: center; } /* Para el botón que no sale en el PDF */
+    .pdf-btn { background: #2980b9; color: #fff; padding: 12px 25px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
     .pdf-btn:hover { background: #1f6391; }
   </style>
 </head>
 <body>
-  <header>
-    <img src="imgPersonal.jpg" alt="Foto de Antonino Sánchez Martínez">
-    <h1>Currículum Vitae</h1>
-    <h2>Antonino Sánchez Martínez</h2>
-  </header>
 
-  <section id="curriculum">
-    <h2>Datos Básicos</h2>
-    <p><strong>Nombre:</strong> Antonino Sánchez Martínez</p>
-    <p><strong>Dirección:</strong> Camino del Potrero 7847 Y2, Colonia Moradas del Porvenir</p>
-    <p><strong>Whatsapp:</strong> 6566000784</p>
-    <p><strong>Correo electrónico:</strong> antoninosm1@gmail.com</p>
-    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/antonino-sanchez-212668216" target="_blank">Perfil</a></p>
+  <!-- Contenedor que capturará el PDF -->
+  <div id="cv-content">
+    <header>
+      <!-- Asegúrate que imgPersonal.jpg esté en la misma carpeta -->
+      <img src="imgPersonal.jpg" alt="Foto de Antonino Sánchez Martínez">
+      <h1>Currículum Vitae</h1>
+      <h2>Antonino Sánchez Martínez</h2>
+    </header>
 
-    <h2>Formación Académica</h2>
-    <ul>
-      <li>Ingeniería en Sistemas (2 semestres) — 2023-2024</li>
-      <li>Bachillerato Prepa en Línea SEP, Cd. México — 04/2018 - 03/2021 (Certificado)</li>
-      <li>Certificación Empleo 4.0 Microsoft — 2018-2021</li>
-      <li>Secundaria Federal #9, Cd. Juárez, Chihuahua — 04/2018 - 03/2021 (Certificado)</li>
-    </ul>
+    <section>
+      <h2>Datos Básicos</h2>
+      <p><strong>Nombre:</strong> Antonino Sánchez Martínez</p>
+      <p><strong>Dirección:</strong> Camino del Potrero 7847 Y2, Colonia Moradas del Porvenir</p>
+      <p><strong>Whatsapp:</strong> 6566000784</p>
+      <p><strong>Correo electrónico:</strong> antoninosm1@gmail.com</p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/antonino-sanchez-212668216" target="_blank">Perfil</a></p>
 
-    <h2>Experiencia Laboral</h2>
-    <ul>
-      <li><strong>Banco del Bienestar (08/2024 – Actualidad)</strong><br>
-        Auxiliar administrativo y encargado de sucursal temporalmente.<br>
-        Pago a beneficiarios de programas sociales para derecho habientes.<br>
-        Apertura de cuentas y creación de expedientes para ahorro e inversiones.<br>
-        Asesoramiento y creación de billetes de fianza para autoridades fiscales.<br>
-        Complemento de información a clientes y beneficiarios.<br>
-        <em>Logro:</em> Implementación eficiente de procesos administrativos que mejoraron la atención al cliente y redujeron tiempos de espera en un 20%.</li>
-      <li><strong>Repartidor UBER Eats (02/2020 - 08/2024)</strong><br>
-        Distribución de alimentos a clientes.<br>
-        Atención personalizada y gestión de entregas.<br>
-        <em>Logro:</em> Mantenimiento de una alta calificación de satisfacción del cliente (4.9/5).</li>
-      <li><strong>Autoempleado Juárez Orgánico (07/2016 - 08/2021)</strong><br>
-        Producción y venta de alimentos saludables.<br>
-        Captación de asociados de productos afines.<br>
-        Desarrollo de red de clientes.<br>
-        <em>Logro:</em> Creación y consolidación de un negocio artesanal con crecimiento anual del 15%.</li>
-      <li><strong>Capacitador Electoral INE (06/2017 - 02/2018)</strong><br>
-        Capacitación a personas en procesos electorales.<br>
-        Apoyo en la jornada electoral y recolección de material sensible.<br>
-        <em>Logro:</em> Culminación exitosa del proceso electoral sin incidentes, garantizando transparencia.</li>
-      <li><strong>Técnico en Urgencias Médicas UMAM (08/2006 - 07/2016)</strong><br>
-        Atención y traslado de pacientes.<br>
-        Apoyo y confort a familiares en situaciones críticas.<br>
-        Control de masas en zonas siniestradas.<br>
-        <em>Logro:</em> Rescate y traslado exitoso en más del 95% de los casos.</li>
-    </ul>
+      <h2>Formación Académica</h2>
+      <ul>
+        <li>Ingeniería en Sistemas (2 semestres) — 2023-2024</li>
+        <li>Bachillerato Prepa en Línea SEP — 04/2018 - 03/2021</li>
+        <li>Certificación Empleo 4.0 Microsoft — 2018-2021</li>
+      </ul>
 
-        <h2>Habilidades Técnicas y Blandas</h2>
-    <ul>
-      <li>Idioma: Español</li>
-      <li>Competencias: Liderazgo, comunicación, resolución de problemas, adaptabilidad, atención al cliente, ventas</li>
-      <li>Ofimática: Conocimiento avanzado en herramientas computacionales y de oficina</li>
-      <li>Experiencia: Más de 20 años en ventas y atención a clientes/pacientes</li>
-    </ul>
+      <h2>Experiencia Laboral</h2>
+      <ul>
+        <li><strong>Banco del Bienestar (08/2024 – Actualidad)</strong><br>
+          Auxiliar administrativo. Logro: Mejora del 20% en tiempos de espera.</li>
+        <li><strong>Repartidor UBER Eats (02/2020 - 08/2024)</strong><br>
+          Calificación: 4.9/5.</li>
+        <li><strong>Técnico en Urgencias Médicas UMAM (08/2006 - 07/2016)</strong><br>
+          Rescate y traslado con 95% de efectividad.</li>
+      </ul>
 
-    <h2>Proyectos Destacados</h2>
-    <p>Atención a clientes con más de 20 años de experiencia. Desarrollo de servicios administrativos y plusvalías personalizadas. <br>
-    <em>Impacto:</em> Generación de confianza y fidelización de clientes.</p>
+      <h2>Habilidades y Objetivo</h2>
+      <p><strong>Objetivo:</strong> Auxiliar administrativo orientado a optimizar procesos y eficiencia.</p>
+      <p><strong>Sueldo deseado:</strong> $15,000 MXN mensuales.</p>
+    </section>
+  </div>
 
-    <h2>Objetivo Profesional</h2>
-    <p>Auxiliar administrativo con enfoque en atención al público y conocimientos avanzados en ofimática, orientado a optimizar procesos y mejorar la eficiencia administrativa.</p>
+  <!-- El botón fuera del id="cv-content" para que no salga dentro del PDF -->
+  <div class="no-pdf">
+    <button class="pdf-btn" onclick="downloadPDF()">Descargar CV en PDF</button>
+  </div>
 
-    <h2>Sueldo Deseado</h2>
-    <p><strong>$15,000 MXN mensuales</strong> — No negociable.</p>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script>
+    function downloadPDF() {
+      const element = document.getElementById('cv-content'); // Selecciona TODO el contenido
+      
+      const opt = {
+        margin: 0,
+        filename: 'Curriculum_Antonino.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { 
+          scale: 2, 
+          useCORS: true, // Importante para cargar la imagen
+          logging: false 
+        },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
 
-    <h2>Extras</h2>
-    <ul>
-      <li>Taller: Control de la palabra impartido en el ITCJ (2023)</li>
-      <li>Reconocimiento: Beca por impartición del taller en ITCJ</li>
-    </ul>
-  </section>
-
-  <footer>
-    <p>Contacto: <a href="mailto:antoninosm1@gmail.com">antoninosm1@gmail.com</a> | Tel: 6566000784</p>
-    <button class="pdf-btn" onclick="downloadPDF()">Descargar en PDF</button>
-  </footer>
-
-
-  <!-- Librería html2pdf.js (solo una vez) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-<script>
-  // Esperar a que la página esté completamente cargada
-  window.addEventListener('load', () => {
-    console.log("✅ Página cargada completamente.");
-    alert("La página está lista. Puedes generar el PDF.");
-  });
-
-  function downloadPDF() {
-    try {
-      console.log("⬇️ Preparando descarga de PDF...");
-      alert("Preparando descarga, esperando que la imagen se cargue...");
-
-      // Esperar 3 segundos para asegurar que la imagen esté cargada
-      setTimeout(() => {
-        console.log("⏳ Espera completada, iniciando proceso de PDF...");
-        alert("Iniciando proceso de PDF...");
-
-        const element = document.getElementById('curriculum');
-        const opt = {
-          margin: 0.5,
-          filename: 'Curriculum_Antonino.pdf',
-          image: { type: 'jpeg', quality: 1 },
-          html2canvas: { scale: 2, useCORS: true },
-          jsPDF: { unit: 'mm', format: 'legal', orientation: 'portrait' }
-        };
-
-        console.log("⬇️ Intentando descargar PDF...");
-        alert("Descarga iniciada, revisa la consola para seguimiento.");
-
-        html2pdf().set(opt).from(element).save().then(() => {
-          console.log("✅ PDF descargado correctamente.");
-          alert("PDF descargado correctamente.");
-        }).catch(error => {
-          console.error("❌ Error durante la descarga:", error);
-          alert("Error durante la descarga. Revisa la consola.");
-        });
-
-      }, 3000); // 3 segundos de espera
-    } catch (error) {
-      console.error("❌ Error en función downloadPDF:", error);
-      alert("Error en función downloadPDF. Revisa la consola.");
+      html2pdf().set(opt).from(element).save();
     }
-  }
-</script>
-
+  </script>
 </body>
 </html>
