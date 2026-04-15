@@ -1,92 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Currículum Vitae - Antonino Sánchez Martínez</title>
-  <script src="https://cloudflare.com"></script>
-  <style>
-    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #525659; display: flex; flex-direction: column; align-items: center; padding: 20px; }
-    
-    /* Contenedor del PDF */
-    #cv-final { background: #fff; width: 210mm; min-height: 297mm; box-shadow: 0 0 15px rgba(0,0,0,0.5); color: #333; }
+    <meta charset="UTF-8">
+    <title>CV - Antonino Sánchez Martínez</title>
+    <!-- 1. CARGA DE LIBRERÍA (Cambiamos a un servidor más rápido) -->
+    <script src="https://cloudflare.com" integrity="sha512-GsLlZN/3F2ErC5ifW5AQKYzhP3PS88UmxVGiVmHKp3hShxgnwqr3SMuE6gzNp69kjKGFuhuOK61lcohvL8xePb==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    header { background: #2c3e50; color: #fff; padding: 30px; text-align: center; }
-    header img { max-width: 150px; border-radius: 8px; border: 3px solid #fff; margin-bottom: 10px; }
-    
-    section { padding: 25px 40px; }
-    h2 { border-bottom: 2px solid #2c3e50; color: #2c3e50; padding-bottom: 5px; margin-top: 20px; text-transform: uppercase; font-size: 18px; }
-    ul { list-style: none; padding: 0; }
-    li { margin-bottom: 12px; line-height: 1.5; }
-    strong { color: #2c3e50; }
-    em { color: #16a085; font-weight: bold; }
-
-    .btn-container { margin-bottom: 20px; position: sticky; top: 10px; z-index: 100; }
-    .pdf-btn { background: #27ae60; color: white; padding: 15px 30px; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; font-size: 18px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
-    .pdf-btn:hover { background: #219150; }
-  </style>
+    <style>
+        body { font-family: Arial, sans-serif; background: #444; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        #cv-box { width: 210mm; background: white; min-height: 290mm; padding: 0; margin: 0; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+        header { background: #2c3e50; color: white; text-align: center; padding: 30px; }
+        header img { width: 140px; height: 160px; border: 3px solid white; object-fit: cover; border-radius: 4px; }
+        section { padding: 40px; line-height: 1.6; color: #333; }
+        h2 { border-bottom: 2px solid #2c3e50; color: #2c3e50; margin-top: 25px; }
+        .btn-descarga { padding: 15px 30px; background: #27ae60; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 18px; margin-bottom: 20px; font-weight: bold; }
+    </style>
 </head>
 <body>
 
-  <div class="btn-container">
-    <button class="pdf-btn" onclick="descargarMiPDF()">📥 DESCARGAR CV EN PDF</button>
-  </div>
+    <button class="btn-descarga" onclick="generarDocumento()">📥 DESCARGAR CV AHORA</button>
 
-  <div id="cv-final">
-    <header>
-      <img src="imgPersonal.jpg" alt="Antonino Sánchez" crossorigin="anonymous">
-      <h1>Antonino Sánchez Martínez</h1>
-      <p style="font-size: 1.2em;">Auxiliar Administrativo / Atención al Cliente</p>
-    </header>
+    <div id="cv-box">
+        <header>
+            <!-- Nota: Si la imagen sigue fallando, intenta quitar el crossorigin -->
+            <img src="imgPersonal.jpg" alt="Foto Antonino" id="foto">
+            <h1>Antonino Sánchez Martínez</h1>
+            <p>Auxiliar Administrativo / Atención al Cliente</p>
+        </header>
 
-    <section>
-      <h2>Datos de Contacto</h2>
-      <p><strong>Dirección:</strong> Camino del Potrero 7847 Y2, Col. Moradas del Porvenir</p>
-      <p><strong>Whatsapp:</strong> 6566000784 | <strong>Email:</strong> antoninosm1@gmail.com</p>
-      <p><strong>LinkedIn:</strong> ://linkedin.com</p>
+        <section>
+            <h2>Información de Contacto</h2>
+            <p><strong>WhatsApp:</strong> 6566000784 | <strong>Email:</strong> antoninosm1@gmail.com</p>
+            <p><strong>Dirección:</strong> Camino del Potrero 7847 Y2, Cd. Juárez</p>
 
-      <h2>Experiencia Laboral</h2>
-      <ul>
-        <li><strong>Banco del Bienestar (08/2024 – Actualidad)</strong><br>
-          Auxiliar administrativo y encargado temporal. Apertura de cuentas, expedientes de ahorro/inversión y pago a beneficiarios.<br>
-          <em>Logro:</em> Reducción del 20% en tiempos de espera mediante optimización de procesos.</li>
-        <li><strong>Repartidor UBER Eats (02/2020 - 08/2024)</strong><br>
-          Gestión de entregas y atención personalizada. <em>Logro:</em> Calificación de 4.9/5.</li>
-        <li><strong>Autoempleado Juárez Orgánico (07/2016 - 08/2021)</strong><br>
-          Producción y venta de alimentos saludables. <em>Logro:</em> Crecimiento anual del 15%.</li>
-        <li><strong>Capacitador Electoral INE (06/2017 - 02/2018)</strong><br>
-          Capacitación en procesos electorales y recolección de material sensible.</li>
-        <li><strong>Técnico en Urgencias Médicas UMAM (08/2006 - 07/2016)</strong><br>
-          Atención prehospitalaria y control de masas. <em>Logro:</em> 95% de casos con traslado exitoso.</li>
-      </ul>
+            <h2>Experiencia Laboral</h2>
+            <p><strong>Banco del Bienestar (2024 - Actualidad)</strong><br>
+            Auxiliar administrativo. Gestión de expedientes y atención a beneficiarios.<br>
+            <em>Logro:</em> Mejora del 20% en tiempos de atención.</p>
 
-      <h2>Formación Académica</h2>
-      <ul>
-        <li>Ingeniería en Sistemas (2 semestres) — 2023-2024</li>
-        <li>Bachillerato Prepa en Línea SEP — Certificado (2018-2021)</li>
-        <li>Certificación Empleo 4.0 Microsoft — 2018-2021</li>
-        <li>Taller: Control de la palabra - ITCJ (2023)</li>
-      </ul>
+            <p><strong>Repartidor UBER Eats (2020 - 2024)</strong><br>
+            Atención personalizada. Calificación 4.9/5.</p>
 
-      <h2>Habilidades y Objetivo</h2>
-      <p><strong>Objetivo:</strong> Optimizar la eficiencia administrativa y brindar una atención al público de excelencia.</p>
-      <p><strong>Competencias:</strong> Liderazgo, Ofimática Avanzada, Resolución de Problemas y 20 años de experiencia en ventas.</p>
-      <p><strong>Sueldo deseado:</strong> $15,000 MXN mensuales (No negociable).</p>
-    </section>
-  </div>
+            <p><strong>Técnico en Urgencias Médicas (2006 - 2016)</strong><br>
+            95% de casos de traslado exitosos.</p>
 
-  <script>
-    function descargarMiPDF() {
-      const element = document.getElementById('cv-final');
-      const opt = {
-        margin: 0,
-        filename: 'CV_Antonino_Sanchez.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-      };
-      html2pdf().set(opt).from(element).save();
-    }
-  </script>
+            <h2>Educación</h2>
+            <ul>
+                <li>Ingeniería en Sistemas (2 semestres)</li>
+                <li>Bachillerato Prepa en Línea SEP (Certificado)</li>
+            </ul>
+
+            <h2>Expectativa Salarial</h2>
+            <p><strong>$15,000 MXN mensuales</strong> (No negociable).</p>
+        </section>
+    </div>
+
+    <script>
+        function generarDocumento() {
+            // Verificamos si la librería cargó antes de intentar usarla
+            if (typeof html2pdf === 'undefined') {
+                alert("La librería PDF aún no carga. Espera 2 segundos e intenta de nuevo.");
+                return;
+            }
+
+            const element = document.getElementById('cv-box');
+            const opciones = {
+                margin: 0,
+                filename: 'CV_Antonino_Sanchez.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { 
+                    scale: 2, 
+                    useCORS: true,
+                    allowTaint: true 
+                },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opciones).from(element).save();
+        }
+    </script>
 </body>
 </html>
