@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>CV - Antonino Sánchez Martínez</title>
-    <!-- Incluimos la librería completa directamente para evitar bloqueos de red -->
-    <script src="https://cloudflare.com"></script>
+    <!-- Librería html2pdf -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     
     <style>
         body { 
@@ -21,37 +21,58 @@
             background: white; 
             min-height: 297mm; 
             box-shadow: 0 0 10px rgba(0,0,0,0.5); 
-        }header { 
-  background: #2c3e50; 
-  height: 35%;              /* ocupa el 15% de la altura del CV */
-  color: white; 
-  text-align: center; 
-  padding: 15px;             /* menos padding para que no se expanda */
-  display: flex;            /* flexbox para adaptar contenido */
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: center;  /* centra verticalmente */
-  overflow: hidden;         /* evita que se desborde */
-}
+        }
 
-header img { 
-  width: 10%;             /* imagen más compacta */
-  height: auto; 
-  border: 3px solid white; 
-  object-fit: cover; 
-  margin-bottom: 8px; 
-}
+        header { 
+            background: #2c3e50; 
+            height: 15%; 
+            color: white; 
+            padding: 10px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            overflow: hidden; 
+            animation: fadeInDown 1s ease; /* animación de entrada */
+        }
 
-header h1 { 
-  font-size: 1.7em;         /* tamaño reducido */
-  margin: 4px 0; 
-}
+        header img { 
+            width: 120px; 
+            height: auto; 
+            border: 3px solid white; 
+            object-fit: cover; 
+            margin-right: 20px; 
+            transition: all 0.3s ease;
+        }
+        header img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(255,255,255,0.6);
+        }
 
-header h2 { 
-  font-size: 1.4em; 
-  margin: 4px 0; 
-}
+        header h1 { 
+            font-size: 1.7em; 
+            margin: 4px 0; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* efecto 3D */
+        }
 
+        header h2, header p { 
+            font-size: 1.2em; 
+            margin: 2px 0; 
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        section { 
+            padding: 10px; 
+            color: #333; 
+        } 
+        h2 { 
+            border-bottom: 2px solid #2c3e50; 
+            color: #2c3e50; 
+            padding-bottom: 4px; 
+        }
         .no-print { 
             margin-bottom: 20px; 
         }
@@ -64,132 +85,126 @@ header h2 {
             cursor: pointer; 
             font-size: 18px; 
             font-weight: bold; 
+            transition: background 0.3s ease;
+        }
+        .btn:hover { 
+            background: #1e8449; 
         }
     </style>
 </head>
 <body>
 
-
-
     <div id="cv-final">
         <header>
             <img src="imgPersonal.jpg" alt="Antonino Sánchez">
-            <h1>Antonino Sánchez Martínez</h1>
-            <p>Auxiliar Administrativo / Atención al Cliente</p>
+            <div>
+                <h1>Antonino Sánchez Martínez</h1>
+                <p>Auxiliar Administrativo / Atención al Cliente</p>
+            </div>
         </header>
         <section id="curriculum">
-    <h2>Datos Básicos</h2>
-    <p><strong>Nombre:</strong> Antonino Sánchez Martínez</p>
-    <p><strong>Dirección:</strong> Camino del Potrero 7847 Y2, Colonia Moradas del Porvenir</p>
-    <p>
-  <strong>WhatsApp:</strong> 
-  <a href="https://wa.me/526566000784" target="_blank">
-    6566000784
-  </a>
-</p>
- 
-    <p>
-  <strong>Email:</strong> 
-  <a href="https://mail.google.com" target="_blank">
-    antoninosm1@gmail.com
-  </a>
-</p>
+            <h2>Datos Básicos</h2>
+            <p><strong>Nombre:</strong> Antonino Sánchez Martínez</p>
+            <p><strong>Dirección:</strong> Camino del Potrero 7847 Y2, Colonia Moradas del Porvenir</p>
+            <p><strong>WhatsApp:</strong> 
+                <a href="https://wa.me/526566000784" target="_blank">6566000784</a>
+            </p>
+            <p><strong>Email:</strong> 
+                <a href="https://mail.google.com" target="_blank">antoninosm1@gmail.com</a>
+            </p>
+            <p><strong>LinkedIn:</strong> 
+                <a href="https://www.linkedin.com/in/antonino-sanchez-212668216" target="_blank">in/antonino</a>
+            </p>
 
-    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/antonino-sanchez-212668216" target="_blank">in/antonino</a></p>
+                        <h2>Formación Académica</h2>
+            <ul>
+              <li>Ingeniería en Sistemas (2 semestres) — 2023-2024</li>
+              <li>Bachillerato Prepa en Línea SEP, Cd. México — 04/2018 - 03/2021 (Certificado)</li>
+              <li>Certificación Empleo 4.0 Microsoft — 2018-2021</li>
+              <li>Secundaria Federal #9, Cd. Juárez, Chihuahua — 04/2018 - 03/2021 (Certificado)</li>
+            </ul>
 
-    <h2>Formación Académica</h2>
-    <ul>
-      <li>Ingeniería en Sistemas (2 semestres) — 2023-2024</li>
-      <li>Bachillerato Prepa en Línea SEP, Cd. México — 04/2018 - 03/2021 (Certificado)</li>
-      <li>Certificación Empleo 4.0 Microsoft — 2018-2021</li>
-      <li>Secundaria Federal #9, Cd. Juárez, Chihuahua — 04/2018 - 03/2021 (Certificado)</li>
-    </ul>
+            <h2>Experiencia Laboral</h2>
+            <ul>
+              <li><strong>Banco del Bienestar (08/2024 – Actualidad)</strong><br>
+                Auxiliar administrativo y encargado de sucursal temporalmente.<br>
+                Pago a beneficiarios de programas sociales.<br>
+                Apertura de cuentas y expedientes.<br>
+                <em>Logro:</em> Reducción de tiempos de espera en un 20%.</li>
+              <li><strong>Repartidor UBER Eats (02/2020 - 08/2024)</strong><br>
+                Distribución de alimentos y atención personalizada.<br>
+                <em>Logro:</em> Calificación de satisfacción del cliente 4.9/5.</li>
+              <li><strong>Autoempleado Juárez Orgánico (07/2016 - 08/2021)</strong><br>
+                Producción y venta de alimentos saludables.<br>
+                <em>Logro:</em> Crecimiento anual del 15%.</li>
+              <li><strong>Capacitador Electoral INE (06/2017 - 02/2018)</strong><br>
+                Capacitación en procesos electorales.<br>
+                <em>Logro:</em> Culminación exitosa del proceso sin incidentes.</li>
+              <li><strong>Técnico en Urgencias Médicas UMAM (08/2006 - 07/2016)</strong><br>
+                Atención y traslado de pacientes.<br>
+                <em>Logro:</em> Rescate exitoso en más del 95% de los casos.</li>
+            </ul>
 
-    <h2>Experiencia Laboral</h2>
-    <ul>
-      <li><strong>Banco del Bienestar (08/2024 – Actualidad)</strong><br>
-        Auxiliar administrativo y encargado de sucursal temporalmente.<br>
-        Pago a beneficiarios de programas sociales para derecho habientes.<br>
-        Apertura de cuentas y creación de expedientes para ahorro e inversiones.<br>
-        Asesoramiento y creación de billetes de fianza para autoridades fiscales.<br>
-        Complemento de información a clientes y beneficiarios.<br>
-        <em>Logro:</em> Implementación eficiente de procesos administrativos que mejoraron la atención al cliente y redujeron tiempos de espera en un 20%.</li>
-      <li><strong>Repartidor UBER Eats (02/2020 - 08/2024)</strong><br>
-        Distribución de alimentos a clientes.<br>
-        Atención personalizada y gestión de entregas.<br>
-        <em>Logro:</em> Mantenimiento de una alta calificación de satisfacción del cliente (4.9/5).</li>
-      <li><strong>Autoempleado Juárez Orgánico (07/2016 - 08/2021)</strong><br>
-        Producción y venta de alimentos saludables.<br>
-        Captación de asociados de productos afines.<br>
-        Desarrollo de red de clientes.<br>
-        <em>Logro:</em> Creación y consolidación de un negocio artesanal con crecimiento anual del 15%.</li>
-      <li><strong>Capacitador Electoral INE (06/2017 - 02/2018)</strong><br>
-        Capacitación a personas en procesos electorales.<br>
-        Apoyo en la jornada electoral y recolección de material sensible.<br>
-        <em>Logro:</em> Culminación exitosa del proceso electoral sin incidentes, garantizando transparencia.</li>
-      <li><strong>Técnico en Urgencias Médicas UMAM (08/2006 - 07/2016)</strong><br>
-        Atención y traslado de pacientes.<br>
-        Apoyo y confort a familiares en situaciones críticas.<br>
-        Control de masas en zonas siniestradas.<br>
-        <em>Logro:</em> Rescate y traslado exitoso en más del 95% de los casos.</li>
-    </ul>
+            <h2>Habilidades Técnicas y Blandas</h2>
+            <ul>
+              <li>Idioma: Español</li>
+              <li>Competencias: Liderazgo, comunicación, resolución de problemas, adaptabilidad, atención al cliente, ventas</li>
+              <li>Ofimática: Conocimiento avanzado en herramientas computacionales y de oficina</li>
+              <li>Experiencia: Más de 20 años en ventas y atención a clientes/pacientes</li>
+            </ul>
 
-    <h2>Habilidades Técnicas y Blandas</h2>
-    <ul>
-      <li>Idioma: Español</li>
-      <li>Competencias: Liderazgo, comunicación, resolución de problemas, adaptabilidad, atención al cliente, ventas</li>
-      <li>Ofimática: Conocimiento avanzado en herramientas computacionales y de oficina</li>
-      <li>Experiencia: Más de 20 años en ventas y atención a clientes/pacientes</li>
-    </ul>
+            <h2>Proyectos Destacados</h2>
+            <p>Atención a clientes con más de 20 años de experiencia. Desarrollo de servicios administrativos y plusvalías personalizadas. <br>
+            <em>Impacto:</em> Generación de confianza y fidelización de clientes.</p>
 
-    <h2>Proyectos Destacados</h2>
-    <p>Atención a clientes con más de 20 años de experiencia. Desarrollo de servicios administrativos y plusvalías personalizadas. <br>
-    <em>Impacto:</em> Generación de confianza y fidelización de clientes.</p>
+            <h2>Objetivo Profesional</h2>
+            <p>Auxiliar administrativo con enfoque en atención al público y conocimientos avanzados en ofimática, orientado a optimizar procesos y mejorar la eficiencia administrativa.</p>
 
-    <h2>Objetivo Profesional</h2>
-    <p>Auxiliar administrativo con enfoque en atención al público y conocimientos avanzados en ofimática, orientado a optimizar procesos y mejorar la eficiencia administrativa.</p>
+            <h2>Sueldo Deseado</h2>
+            <p><strong>$15,000 MXN mensuales.</strong></p>
 
-    <h2>Sueldo Deseado</h2>
-    <p><strong>$15,000 MXN mensuales.</strong></p>
-
-    <h2>Extras</h2>
-    <ul>
-      <li>Taller: Control de la palabra impartido en el ITCJ (2023)</li>
-      <li>Reconocimiento: Beca por impartición del taller en ITCJ</li>
-    </ul>
-  </section>
+            <h2>Extras</h2>
+            <ul>
+              <li>Taller: Control de la palabra impartido en el ITCJ (2023)</li>
+              <li>Reconocimiento: Beca por impartición del taller en ITCJ</li>
+            </ul>
+        </section>
     </div>
+
     <footer>
-          
-    <div class="no-print">
+      <div class="no-print">
         <button class="btn" onclick="descargar()">📥 GENERAR PDF (Modo Local)</button>
-    
-    <p>Contacto: <a href="mailto:antoninosm1@gmail.com">antoninosm1@gmail.com</a> | Tel: 6566000784</p>
-  </footer>
-        
+      </div>
+      <p>Contacto: <a href="mailto:antoninosm1@gmail.com">antoninosm1@gmail.com</a> | Tel: 6566000784</p>
+    </footer>
 
     <script>
-        function descargar() {
-            const element = document.getElementById('cv-final');
-            
-            // Si la librería remota falla, intentamos usar el comando de impresión del navegador
-            // que es infalible y no requiere internet.
-            const opt = {
-                margin: 0,
-                filename: 'CV_Antonino_Sanchez.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
+      function descargar() {
+        const element = document.getElementById('cv-final');
+        const opt = {
+          margin: 0,
+          filename: 'CV_Antonino_Sanchez.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2, useCORS: true },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
 
-            if (typeof html2pdf !== 'undefined') {
-                html2pdf().set(opt).from(element).save();
-            } else {
-                // PLAN B: Si la red bloquea la librería, usamos la impresión nativa
-                alert("La red bloqueó la librería externa. Se abrirá la ventana de impresión; elige 'Guardar como PDF'.");
-                window.print();
-            }
+        console.log("⬇️ Preparando descarga de PDF...");
+        alert("Preparando descarga...");
+
+        if (typeof html2pdf !== 'undefined') {
+          html2pdf().set(opt).from(element).save().then(() => {
+            console.log("✅ PDF descargado correctamente.");
+            alert("PDF descargado correctamente.");
+          }).catch(error => {
+            console.error("❌ Error durante la descarga:", error);
+            alert("Error durante la descarga. Revisa la consola.");
+          });
+        } else {
+          alert("La red bloqueó la librería externa. Se abrirá la ventana de impresión; elige 'Guardar como PDF'.");
+          window.print();
         }
+      }
     </script>
 </body>
 </html>
