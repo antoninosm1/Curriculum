@@ -107,13 +107,12 @@
   </footer>
 
 
-  
-<!-- Librería html2pdf.js -->
+  <!-- Librería html2pdf.js (solo una vez) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script>
   function previewPDF() {
     try {
-      const element = document.getElementById('curriculum');
+      const element = document.getElementById('curriculum'); // usar solo el currículum
       const opt = {
         margin: 0.5,
         filename: 'Curriculum_Antonino_preview.pdf',
@@ -121,7 +120,7 @@
         html2canvas: { scale: 2, useCORS: true },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
       };
-      console.log("✅ Generando preview...");
+      console.log("🔍 Generando preview...");
       alert("Se está generando un preview del PDF, revisa la consola.");
       html2pdf().set(opt).from(element).toPdf().get('pdf').then(function (pdf) {
         console.log("✅ Preview generado correctamente.");
@@ -135,7 +134,7 @@
 
   function downloadPDF() {
     try {
-      const element = document.getElementById('curriculum');
+      const element = document.getElementById('curriculum'); // usar solo el currículum
       const opt = {
         margin: 0.5,
         filename: 'Curriculum_Antonino.pdf',
@@ -143,7 +142,7 @@
         html2canvas: { scale: 2, useCORS: true },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
       };
-      console.log("✅ Intentando descargar PDF...");
+      console.log("⬇️ Intentando descargar PDF...");
       alert("Descarga iniciada, revisa la consola para seguimiento.");
       html2pdf().set(opt).from(element).save();
       console.log("✅ PDF descargado correctamente.");
@@ -153,9 +152,8 @@
     }
   }
 
-  // Función de verificación múltiple
   function verifyPDF() {
-    console.log("🔍 Iniciando verificación de PDF...");
+    console.log("🔎 Iniciando verificación de PDF...");
     alert("Verificando compatibilidad de PDF...");
     try {
       previewPDF();
@@ -168,7 +166,5 @@
     }
   }
 </script>
-
-
 </body>
 </html>
