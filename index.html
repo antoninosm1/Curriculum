@@ -10,76 +10,37 @@
     header img {
       max-width: 180px;
       height: auto;
-      border-radius: 5%;
-      border: 4px solid #fff;
+      border-radius: 50%;
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      margin-bottom: 10px;
     }
-    nav { background: #34495e; padding: 10px; text-align: center; position: relative; }
-    nav .menu { display: inline-block; position: relative; }
-    nav .menu > a { color: #ecf0f1; text-decoration: none; font-weight: bold; padding: 10px 20px; display: inline-block; }
-    nav .menu-content {
-      display: none;
-      position: absolute;
-      background: #2c3e50;
-      min-width: 200px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-      z-index: 1;
-    }
-    nav .menu-content a {
-      color: #ecf0f1;
-      padding: 10px;
-      text-decoration: none;
-      display: block;
-      text-align: left;
-    }
-    nav .menu-content a:hover { background: #1abc9c; }
-    nav .menu:hover .menu-content { display: block; }
+    nav a { color: #ecf0f1; text-decoration: none; font-weight: bold; }
     section { background: #fff; margin: 20px auto; padding: 20px; max-width: 900px; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    h2 { border-bottom: 2px solid #2c3e50; padding-bottom: 5px; margin-bottom: 15px; color: #2c3e50; }
-    section { page-break-inside: avoid; }
-h2 { page-break-before: always; }
-
+    h2 { border-bottom: 2px solid #2c3e50; padding-bottom: 5px; margin-bottom: 15px; }
     ul { list-style: none; padding: 0; }
     li { margin-bottom: 10px; }
-    footer { background: #2c3e50; color: #fff; text-align: center; padding: 20px; margin-top: 30px; }
-    footer a { color: #1abc9c; text-decoration: none; }
-    .pdf-btn { background: #1abc9c; color: #fff; padding: 12px 25px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
-    .pdf-btn:hover { background: #16a085; }
+    footer { background: #2c3e50; color: #fff; text-align: center; padding: 15px; margin-top: 30px; }
+    footer a { color: #ecf0f1; text-decoration: none; }
+    .pdf-btn { background: #2980b9; color: #fff; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+    .pdf-btn:hover { background: #1f6391; }
   </style>
 </head>
 <body>
   <header>
-    <img src="imgPersonal.jpg" alt="Foto de Antonino Sánchez Martínez">
+    <img src="foto.png" alt="Foto de Antonino Sánchez Martínez">
     <h1>Currículum Vitae</h1>
     <h2>Antonino Sánchez Martínez</h2>
+    <button class="pdf-btn" onclick="downloadPDF()">Descargar en PDF</button>
   </header>
 
-  <nav>
-    <div class="menu">
-      <a href="#">Menú</a>
-      <div class="menu-content">
-        <a href="#datos">Datos Básicos</a>
-        <a href="#formacion">Formación Académica</a>
-        <a href="#experiencia">Experiencia Laboral</a>
-        <a href="#habilidades">Habilidades</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#objetivo">Objetivo</a>
-        <a href="#sueldo">Sueldo Deseado</a>
-        <a href="#extras">Extras</a>
-      </div>
-    </div>
-  </nav>
-
   <section id="curriculum">
-    <h2 id="datos">Datos Básicos</h2>
+    <h2>Datos Básicos</h2>
     <p><strong>Nombre:</strong> Antonino Sánchez Martínez</p>
     <p><strong>Dirección:</strong> Camino del Potrero 7847 Y2, Colonia Moradas del Porvenir</p>
     <p><strong>Whatsapp:</strong> 6566000784</p>
     <p><strong>Correo electrónico:</strong> antoninosm1@gmail.com</p>
     <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/antonino-sanchez-212668216" target="_blank">Perfil</a></p>
 
-    <h2 id="formacion">Formación Académica</h2>
+    <h2>Formación Académica</h2>
     <ul>
       <li>Ingeniería en Sistemas (2 semestres) — 2023-2024</li>
       <li>Bachillerato Prepa en Línea SEP, Cd. México — 04/2018 - 03/2021 (Certificado)</li>
@@ -87,7 +48,7 @@ h2 { page-break-before: always; }
       <li>Secundaria Federal #9, Cd. Juárez, Chihuahua — 04/2018 - 03/2021 (Certificado)</li>
     </ul>
 
-    <h2 id="experiencia">Experiencia Laboral</h2>
+    <h2>Experiencia Laboral</h2>
     <ul>
       <li><strong>Banco del Bienestar (08/2024 – Actualidad)</strong><br>
         Auxiliar administrativo y encargado de sucursal temporalmente.<br>
@@ -115,7 +76,8 @@ h2 { page-break-before: always; }
         Control de masas en zonas siniestradas.<br>
         <em>Logro:</em> Rescate y traslado exitoso en más del 95% de los casos.</li>
     </ul>
-    <h2 id="habilidades">Habilidades Técnicas y Blandas</h2>
+
+    <h2>Habilidades Técnicas y Blandas</h2>
     <ul>
       <li>Idioma: Español</li>
       <li>Competencias: Liderazgo, comunicación, resolución de problemas, adaptabilidad, atención al cliente, ventas</li>
@@ -123,17 +85,17 @@ h2 { page-break-before: always; }
       <li>Experiencia: Más de 20 años en ventas y atención a clientes/pacientes</li>
     </ul>
 
-    <h2 id="proyectos">Proyectos Destacados</h2>
+    <h2>Proyectos Destacados</h2>
     <p>Atención a clientes con más de 20 años de experiencia. Desarrollo de servicios administrativos y plusvalías personalizadas. <br>
     <em>Impacto:</em> Generación de confianza y fidelización de clientes.</p>
 
-    <h2 id="objetivo">Objetivo Profesional</h2>
+    <h2>Objetivo Profesional</h2>
     <p>Auxiliar administrativo con enfoque en atención al público y conocimientos avanzados en ofimática, orientado a optimizar procesos y mejorar la eficiencia administrativa.</p>
 
-    <h2 id="sueldo">Sueldo Deseado</h2>
+    <h2>Sueldo Deseado</h2>
     <p><strong>$15,000 MXN mensuales</strong> — No negociable.</p>
 
-    <h2 id="extras">Extras</h2>
+    <h2>Extras</h2>
     <ul>
       <li>Taller: Control de la palabra impartido en el ITCJ (2023)</li>
       <li>Reconocimiento: Beca por impartición del taller en ITCJ</li>
@@ -142,30 +104,22 @@ h2 { page-break-before: always; }
 
   <footer>
     <p>Contacto: <a href="mailto:antoninosm1@gmail.com">antoninosm1@gmail.com</a> | Tel: 6566000784</p>
-    <button class="pdf-btn" onclick="downloadPDF()">Descargar en PDF</button>
   </footer>
 
   <!-- Librería html2pdf.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script>
-function downloadPDF() {
-  try {
-    const element = document.getElementById('curriculum');
-    const opt = {
-      margin: 0.2,
-      filename: 'Curriculum_Antonino.pdf',
-      image: { type: 'jpeg', quality: 1 },
-      html2canvas: { scale: 2, useCORS: true },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-      pagebreak: { mode: ['css', 'legacy'] }
-    };
-    html2pdf().set(opt).from(element).save();
-  } catch (error) {
-    console.error("Error al generar el PDF:", error);
-    alert("⚠️ No se pudo generar el PDF. Revisa la consola del navegador para más detalles.");
-  }
-}
-
+    function downloadPDF() {
+      const element = document.body;
+      const opt = {
+        margin: 0.5,
+        filename: 'Curriculum_Antonino.pdf',
+        image: { type: 'jpeg', quality: 1 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
+    }
   </script>
 </body>
 </html>
