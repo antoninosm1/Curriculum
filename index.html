@@ -80,26 +80,69 @@
   <div class="no-pdf">
     <button class="pdf-btn" onclick="downloadPDF()">Descargar CV en PDF</button>
   </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    console.log("✅ Página cargada completamente.");
+    alert("La página está lista. Puedes generar el PDF.");
+  });
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-  <script>
-    function downloadPDF() {
-      const element = document.getElementById('cv-content'); // Selecciona TODO el contenido
-      
-      const opt = {
-        margin: 0,
-        filename: 'Curriculum_Antonino.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { 
-          scale: 2, 
-          useCORS: true, // Importante para cargar la imagen
-          logging: false 
-        },
-        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-      };
+  function downloadPDF() {
+    try {
+      console.log("⬇️ Preparando descarga de PDF...");
+      alert("Preparando descarga, esperando que la imagen se cargue...");
 
-      html2pdf().set(opt).from(element).save();
+      const img = document.querySelector("header img");
+      if (!img) {
+        console.error("❌ No se encontró la imagen en el header.");
+        alert("No se encontró la imagen en el header.");
+        return;
+      }
+
+      // Esperar a que la imagen esté cargada
+      if (!img.complete) {
+        console.log("⏳ Imagen aún no cargada, esperando...");
+        img.onload = () => {
+          console.log("✅ Imagen cargada, iniciando proceso de PDF...");
+          iniciarPDF();
+        };
+      } else {
+        console.log("✅ Imagen ya cargada, iniciando proceso de PDF...");
+        iniciarPDF();
+      }
+
+      function iniciarPDF() {
+        setTimeout(() => {
+          console.log("⏳ Espera de seguridad completada, generando PDF...");
+          alert("Iniciando proceso de PDF...");
+
+          const element = document.getElementById('curriculum');
+          const opt = {
+            margin: 0.5,
+            filename: 'Curriculum_Antonino.pdf',
+            image: { type: 'jpeg', quality: 1 },
+            html2canvas: { scale: 2, useCORS: true },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+          };
+
+          console.log("⬇️ Intentando descargar PDF...");
+          alert("Descarga iniciada, revisa la consola para seguimiento.");
+
+          html2pdf().set(opt).from(element).save().then(() => {
+            console.log("✅ PDF descargado correctamente.");
+            alert("PDF descargado correctamente.");
+          }).catch(error => {
+            console.error("❌ Error durante la descarga:", error);
+            alert("Error durante la descarga. Revisa la consola.");
+          });
+        }, 2000); // 2 segundos extra de seguridad
+      }
+    } catch (error) {
+      console.error("❌ Error en función downloadPDF:", error);
+      alert("Error en función downloadPDF. Revisa la consola.");
     }
-  </script>
+  }
+</script>
+
 </body>
 </html>
