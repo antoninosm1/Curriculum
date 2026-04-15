@@ -14,7 +14,6 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
       margin-bottom: 10px;
     }
-    nav a { color: #ecf0f1; text-decoration: none; font-weight: bold; }
     section { background: #fff; margin: 20px auto; padding: 20px; max-width: 900px; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
     h2 { border-bottom: 2px solid #2c3e50; padding-bottom: 5px; margin-bottom: 5px; }
     ul { list-style: none; padding: 0; }
@@ -111,21 +110,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script>
     function downloadPDF() {
-      try {
-        const element = document.getElementById('curriculum');
-        const opt = {
-          margin: 0.2,
-          filename: 'Curriculum_Antonino.pdf',
-          image: { type: 'jpeg', quality: 1 },
-          html2canvas: { scale: 2, useCORS: true },
-          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-          pagebreak: { mode: ['css', 'legacy'] }
-        };
-        html2pdf().set(opt).from(element).save();
-      } catch (error) {
-        console.error("Error al generar el PDF:", error);
-        alert("⚠️ No se pudo generar el PDF. Revisa la consola del navegador para más detalles.");
-      }
+      const element = document.body;
+      const opt = {
+        margin: 0.5,
+        filename: 'Curriculum_Antonino.pdf',
+        image: { type: 'jpeg', quality: 1 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
     }
   </script>
 </body>
