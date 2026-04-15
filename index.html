@@ -112,8 +112,34 @@
   <!-- Librería html2pdf.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script>
-    function downloadPDF() {
-      const element = document.body;
+<!-- Librería html2pdf.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+  function previewPDF() {
+    try {
+      const element = document.getElementById('curriculum');
+      const opt = {
+        margin: 0.5,
+        filename: 'Curriculum_Antonino_preview.pdf',
+        image: { type: 'jpeg', quality: 1 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+      console.log("✅ Generando preview...");
+      alert("Se está generando un preview del PDF, revisa la consola.");
+      html2pdf().set(opt).from(element).toPdf().get('pdf').then(function (pdf) {
+        console.log("✅ Preview generado correctamente.");
+        alert("Preview listo. Revisa la consola para confirmar.");
+      });
+    } catch (error) {
+      console.error("❌ Error en preview:", error);
+      alert("Error al generar preview. Revisa la consola.");
+    }
+  }
+
+  function downloadPDF() {
+    try {
+      const element = document.getElementById('curriculum');
       const opt = {
         margin: 0.5,
         filename: 'Curriculum_Antonino.pdf',
@@ -121,8 +147,32 @@
         html2canvas: { scale: 2, useCORS: true },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
       };
+      console.log("✅ Intentando descargar PDF...");
+      alert("Descarga iniciada, revisa la consola para seguimiento.");
       html2pdf().set(opt).from(element).save();
+      console.log("✅ PDF descargado correctamente.");
+    } catch (error) {
+      console.error("❌ Error en descarga:", error);
+      alert("Error al descargar PDF. Revisa la consola.");
     }
+  }
+
+  // Función de verificación múltiple
+  function verifyPDF() {
+    console.log("🔍 Iniciando verificación de PDF...");
+    alert("Verificando compatibilidad de PDF...");
+    try {
+      previewPDF();
+      downloadPDF();
+      console.log("✅ Verificación completa: preview y descarga funcionan.");
+      alert("Verificación completa. Revisa consola para detalles.");
+    } catch (error) {
+      console.error("❌ Error en verificación:", error);
+      alert("Error en verificación. Revisa consola.");
+    }
+  }
+</script>
+
   </script>
 
   </script>
